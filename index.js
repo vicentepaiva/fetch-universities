@@ -1,5 +1,11 @@
 const BASE_URL = 'http://universities.hipolabs.com/search';
 
+
+const countryValues = {
+    'brazil': 'Brazil',
+    'United States': 'United States',
+}
+
 function fetchUniversities(queryParams) {
     if (queryParams.includes('limit')) 
         document.getElementById('countrySelect').value = '';
@@ -11,7 +17,7 @@ fetch (`${BASE_URL}${queryParams}`)
     .catch(error => console.log(error));
 }
 
-fetchUniversities('?country=United+States');
+fetchUniversities('');
 
 
 function showUniversities(universities) {
@@ -38,7 +44,9 @@ function showUniversities(universities) {
 document.getElementById('countrySelect').addEventListener('change', (event) => {
     const selectedCountry = event.target.value;
     if(selectedCountry) {
-        fetchUniversities(`?country=${selectedCountry}`);
+        fetchUniversities(`?country=${countryValues[selectedCountry]}`);
+    } else {
+        fetchUniversities('');
     }
 });
 
