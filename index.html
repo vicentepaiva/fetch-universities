@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universities List</title>
+</head>
+<body>
+
+    <h1>Universities List</h1>
+
+    <select  id="countrySelect">
+        <option value="">Select Country</option>
+        <option value="brazil">BRAZIL</option>
+        <option value="United States">USA</option>
+    </select>
+
+    <button onclick="fetchUniversities('?limit=1000')">list All Universities</button>
+
+    <div id="universitiesList"></div>
+
+    <script src="index.js"></script> 
+
+</body>
+</html>
